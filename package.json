@@ -1,0 +1,20 @@
+{
+  "name": "image-sharing-webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "multer": "1.4.5-lts.1",
+    "uuid": "^8.3.2"
+  }
+}
