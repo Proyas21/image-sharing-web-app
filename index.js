@@ -3,14 +3,12 @@ import { v5 as uuidv5 } from "uuid";
 import multer from "multer";
 import fs from "fs";
 import path from "path";
-// import bodyParser from "body-parser";
 
 const publicFilesPath = process.cwd() + "/public";
 const imageFilesPath = process.cwd() + "/images";
 
 const app = express();
 app.use(express.static(publicFilesPath));
-// app.use(bodyParser({ uploadDir: imageFilesPath, keepExtensions: true }));
 
 
 app.get("/", (req, res) => {
@@ -33,7 +31,7 @@ const upload = multer({
 
 app.post("/upload", upload.single("image"), (req, res) => {
     const ogName = req.file.originalname;
-    const newImgName = ogName + req.file.filename + path.extname(ogName);
+    const newImgName = req.file.filename + path.extname(ogName);
 
     fs.rename(req.file.path, imageFilesPath + "/" + newImgName, console.log);
     res.redirect("/image/" + newImgName);
